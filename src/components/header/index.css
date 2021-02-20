@@ -1,0 +1,17 @@
+.header {
+    text-align: center;
+}
+
+.header-title{
+    width: auto;
+    height: 200px;
+    margin-bottom: 20px;
+    text-align: center;
+    background-color: #151718 ;
+    color: blue;
+    font-size: 130px;
+}
+
+span {
+    font-weight: bold;
+}
