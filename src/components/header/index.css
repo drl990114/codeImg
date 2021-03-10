@@ -1,5 +1,7 @@
 .header {
     text-align: center;
+    width: auto;
+    margin-bottom: 50px;
 }
 
 .header-title{
@@ -10,6 +12,7 @@
     background-color: #151718 ;
     color: blue;
     font-size: 130px;
+    font-weight: bold;
 }
 
 span {
