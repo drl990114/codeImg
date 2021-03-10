@@ -2,7 +2,6 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-
 }
 body {
     display: flex;
@@ -13,36 +12,38 @@ body {
 #box {
     width: auto;
     height: auto;
-    margin: 10px 0 0 0 ;
+    margin: 10px 0 0 0;
 }
 
 .use {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     width: auto;
     margin: 0 0 7px 0;
 }
 .select {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     float: left;
-    width: 130px ;
+    width: 498px;
 }
-
+.select :nth-child(1) {
+    flex: 1;
+}
 .btn {
-float: right;
-    right: 0;
-    margin: 0 0 0 15px;
+    margin: 0 0 0 20px;
 }
 
-
-.grace-input-inner{
-    float: left;
-    width: 130px !important;
+.controls {
+    color: white;
 }
 .grace-input-wrapper {
     margin: 0 !important;
     padding: 0 !important;
-}
+} 
 #img {
     padding: 10px;
     width: auto;
@@ -56,63 +57,65 @@ float: right;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
-.edit-header-ul{ 
+.edit-header-ul {
     margin: 0;
     padding: 0;
     float: left;
     list-style: none;
 }
 
-.edit-header-ul li{ 
+.edit-header-ul li {
     width: 14px;
     height: 14px;
     margin: 6px 0px 6px 15px;
     float: left;
     border-radius: 10px;
 }
-.edit-header-ul li:nth-child(1){
+.edit-header-ul li:nth-child(1) {
     background-color: #ff5f56;
-
 }
-.edit-header-ul li:nth-child(2){
+.edit-header-ul li:nth-child(2) {
     background-color: #ffbd2e;
 }
-.edit-header-ul li:nth-child(3){
+.edit-header-ul li:nth-child(3) {
     background-color: #27c93f;
 }
 
-.edit-header::after{
-    content:"";
-    display:block;
-    clear:both;
-
+.edit-header::after {
+    content: "";
+    display: block;
+    clear: both;
 }
 
-
-#textarea{
+#textarea {
     min-width: 400px;
     height: auto;
-    font-size: 12px;
     line-height: 24px;
     word-wrap: break-word;
     background-color: #151718;
     border-color: rgba(82, 168, 236, 0.8);
 }
 
+.CodeMirror-sizer{
+    font-size: 16px;
+}
 .cm-s-nord.CodeMirror {
     margin: 0 20px 30px 20px;
     width: auto;
     height: auto;
     font-family: Arial, monospace;
     background-color: #151718 !important;
-    font-size: 16px;
+    font-size: 30px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-
 }
 
-.CodeMirror-scroll, .CodeMirror-sizer, .CodeMirror-gutter, .CodeMirror-gutters, .CodeMirror-linenumber {
+.CodeMirror-scroll,
+.CodeMirror-sizer,
+.CodeMirror-gutter,
+.CodeMirror-gutters,
+.CodeMirror-linenumber {
     box-sizing: content-box;
     background-color: #151718;
-    color: #EEFFFF;
-} 
+    color: #eeffff;
+}

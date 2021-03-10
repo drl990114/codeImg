@@ -1,21 +1,40 @@
 import html2canvas from 'html2canvas'
 import { Button, Select } from 'flygrace'
-// import AceEditor from "react-ace";
-
 import { Controlled as CodeMirror } from 'react-codemirror2'
-// import { useState } from 'react'
 import './index.css'
 import { useState } from 'react'
 
 export const Edit = (props) => {
-    //语法language
-    const [language, setLanguage] = useState('xml')
-    //输入值codeValue
-    const [codeValue, setValue] = useState('<h1>Hi~~~</h1>')
+    const [language, setLanguage] = useState('xml')    //语法language
+    const [codeValue, setValue] = useState('<h1>Hi~~~</h1>')    //输入值codeValue
+    const [imgborder , setBorder] = useState(10) 
+    const [fontsize , setFontSize] = useState(16) 
+    const [bordercolor , setBorderColor] = useState('#97a2ac') 
     const handleLanguage = (value) => {
         console.log(value)
         setLanguage(value)
     }
+
+    function handleBorder(e) {
+        setBorder(e.target.value)
+        let img = document.getElementById('img')
+        img.style.padding = `${e.target.value}px`
+    }
+    //修改编辑区字体大小的回调
+    function handleFontSize(e) {
+        setFontSize(e.target.value)
+        let codeFontSize =  document.getElementsByClassName('CodeMirror-sizer')
+        codeFontSize[0].style.fontSize = `${e.target.value}px`
+        // codeFontSize[0].style.cssText = `font-size =${e.target.value}px`
+        
+    }
+    //修改边框颜色的回调
+    function handleColor(e) {
+        setBorderColor(e.target.value)
+        let img = document.getElementById('img')
+        img.style.backgroundColor =e.target.value
+    }
+
 
     //保存canvas图片方法 | 参数1:canvas元素,参数2:保存图片的名字
     function downloadCanvasIamge(canvas, name) {
@@ -36,29 +55,28 @@ export const Edit = (props) => {
     }
     const handleCopy = function (e) {
 
-        var oInput = document.createElement('textarea');
+        let oInput = document.createElement('textarea');
         oInput.value = codeValue;
         document.body.appendChild(oInput);
         oInput.select(); // 选择对象
         document.execCommand("Copy");  // 执行浏览器复制命令
-        oInput.style.display='none';
+        oInput.style.display = 'none';
     }
 
+    //点击截图的回调
     const handleCut = function () {
 
         const y = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
         window.pageYoffset = 0;
         document.documentElement.scrollTop = 0;
         document.body.scrollTop = 0;
-
         const img = document.querySelector('#img')
         html2canvas(img, {
         }).then((canvas) => {
-
             window.scrollTo(0, y);
             downloadCanvasIamge(canvas, '图片名称')
         }).catch(() => [
-            console.log('shibai')
+            console.log('失败')
         ])
 
     }
@@ -67,6 +85,18 @@ export const Edit = (props) => {
     return (
         <div id='box'>
             <div className='use'>
+                <div className="controls">
+                    <label >边框:</label>
+                    <input className='input' type="range" name="imgborder" min="5" max="100" value={imgborder} data-sizing="px" onChange={handleBorder}/>
+
+                    <label >字体大小:</label>
+                    <input className='input' type="range" name="fontsize" min="5" max="30" value={fontsize} data-sizing="px" onChange={handleFontSize}/>
+
+                    <label >边框颜色:</label>
+                    <input className='input' type="color" name="bordercolor" value={bordercolor} onChange={handleColor}/>
+                    <br />
+
+                </div>
                 <div className='select'>
                     <Select style={{ margin: 0, padding: 0 }} placeholder={language} onChange={(value) => handleLanguage(value)}>
                         <Select.Option value="javascript" />
@@ -78,11 +108,11 @@ export const Edit = (props) => {
                         <Select.Option value="jsx" />
                         <Select.Option value="python" />
                         <Select.Option value="http" />
+                        <Select.Option value="markdown" />
                     </Select>
+                    <Button className='btn' onClick={() => handleCopy()}>复制文本</Button>
+                    <Button className='btn' onClick={() => handleCut()}>截图</Button>
                 </div>
-                <Button className='btn' onClick={() => handleCopy()}>点击复制</Button>
-                <Button className='btn' onClick={() => handleCut()}>点击截图</Button>
-
             </div>
 
             <div id='img' >
