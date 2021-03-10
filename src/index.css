@@ -2,3 +2,6 @@ html body {
     background-color: #151718;
     font-family: 'helvetica neue', sans-serif;
 }
+body {
+    min-height: 100vh;
+}

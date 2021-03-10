@@ -1,7 +1,12 @@
 .banner {
     text-align: center;
+    position: sticky;
+    margin-top: 30px;
+    top:100vh;
 }
-
+.banner :nth-child(3) {
+    margin: 10px 0px 10px 0;
+}
 .link {
     width: 20px;
     height: 20px;
