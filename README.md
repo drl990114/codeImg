@@ -1,70 +1,39 @@
-# Getting Started with Create React App
+# 在线文本转图片工具
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 工具简介
+### 技术栈
+基于 `react` + `react hook` + `codemirror` + `html2canvas` + `flygrace UI` 等开发一款PC端文本转图片的工具
 
-## Available Scripts
+## 使用地址
+- 😋 工具使用地址：http://halodong.gitee.io/codeimg/
 
-In the project directory, you can run:
+## 核心功能
+### 已更新
+- 截图功能：
+  - 支持超长截图
+- 高定制化：
+  - 可自定义文本大小
+  - 可自定义相框大小
+  - 可自定义相框颜色
+- 文本复制：
+  - 可复制输入框文本
 
-### `yarn start`
+### 规划中
+- 拖拽改变输入框大小
+- 以及更多自定义功能，可以在[github](https://github.com/halodong/codeimg)留言
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 界面和功能展示
+### 界面展示
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+![](https://cdn.jsdelivr.net/gh/halodong/CDN@1.1/cloudPic/codeimg/首页.PNG)
 
-### `yarn test`
+### 截图演示
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<img src="https://cdn.jsdelivr.net/gh/halodong/CDN@1.1/cloudPic/codeimg/演示1.png"  width="400" margin='0 auto'>
 
-### `yarn build`
+<img src="https://cdn.jsdelivr.net/gh/halodong/CDN@1.1/cloudPic/codeimg/演示2.png"  width="400" margin='0 auto'>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 最后
+- 如果对此开源项目感兴趣，期待你的加入
+- 如果觉得项目还不错的话 👏，就给个 star ⭐ 鼓励一下吧~
