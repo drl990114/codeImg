@@ -66,7 +66,6 @@ export const Edit = (props) => {
     const handleCut = function () {
         let timer = null
         return function () {
-
             let cut = () => {
                 const y = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
                 window.pageYoffset = 0;
@@ -82,8 +81,8 @@ export const Edit = (props) => {
                 ])
             }
             clearTimeout(timer)
-           timer = setTimeout(cut,100) 
-        }()
+           timer = setTimeout(cut,200) 
+        }
     }
 
 
@@ -116,7 +115,7 @@ export const Edit = (props) => {
                         <Select.Option value="markdown" />
                     </Select>
                     <Button className='btn' onClick={() => handleCopy()}>复制文本</Button>
-                    <Button className='btn' onClick={() => handleCut()}>截图</Button>
+                    <Button className='btn' onClick={handleCut()}>截图</Button>
                 </div>
             </div>
 
