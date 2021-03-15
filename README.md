@@ -20,6 +20,7 @@
 
 ### 规划中
 - 拖拽改变输入框大小
+- 更高清晰度
 - 以及更多自定义功能，可以在[github](https://github.com/halodong/codeimg)留言
 
 ## 界面和功能展示
@@ -31,7 +32,7 @@
 
 <img src="https://cdn.jsdelivr.net/gh/halodong/CDN@1.1/cloudPic/codeimg/演示1.png"  width="400" margin='0 auto'>
 
-<img src="https://cdn.jsdelivr.net/gh/halodong/CDN@1.1/cloudPic/codeimg/演示2.png"  width="400" margin='0 auto'>
+<img src="https://cdn.jsdelivr.net/gh/halodong/CDN@1.3/cloudPic/codeimg/演示2.png"  width="400" margin='0 auto'>
 
 
 ## 最后

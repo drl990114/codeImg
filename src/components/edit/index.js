@@ -35,8 +35,10 @@ export const Edit = (props) => {
         img.style.backgroundColor = e.target.value
     }
 
-
-    //保存canvas图片方法 | 参数1:canvas元素,参数2:保存图片的名字
+    /**保存canvas图片方法 
+     * @param :canvas元素
+     * @param :图片名称
+     */
     function downloadCanvasIamge(canvas, name) {
         // 生成一个a元素
         let a = document.createElement('a')
