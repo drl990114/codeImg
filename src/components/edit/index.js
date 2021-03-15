@@ -7,9 +7,9 @@ import { useState } from 'react'
 export const Edit = (props) => {
     const [language, setLanguage] = useState('xml')    //语法language
     const [codeValue, setValue] = useState('<h1>Hi~~~</h1>')    //输入值codeValue
-    const [imgborder , setBorder] = useState(10) 
-    const [fontsize , setFontSize] = useState(16) 
-    const [bordercolor , setBorderColor] = useState('#97a2ac') 
+    const [imgborder, setBorder] = useState(10)
+    const [fontsize, setFontSize] = useState(16)
+    const [bordercolor, setBorderColor] = useState('#97a2ac')
     const handleLanguage = (value) => {
         console.log(value)
         setLanguage(value)
@@ -23,33 +23,30 @@ export const Edit = (props) => {
     //修改编辑区字体大小的回调
     function handleFontSize(e) {
         setFontSize(e.target.value)
-        let codeFontSize =  document.getElementsByClassName('CodeMirror-sizer')
+        let codeFontSize = document.getElementsByClassName('CodeMirror-sizer')
         codeFontSize[0].style.fontSize = `${e.target.value}px`
         // codeFontSize[0].style.cssText = `font-size =${e.target.value}px`
-        
+
     }
     //修改边框颜色的回调
     function handleColor(e) {
         setBorderColor(e.target.value)
         let img = document.getElementById('img')
-        img.style.backgroundColor =e.target.value
+        img.style.backgroundColor = e.target.value
     }
 
 
     //保存canvas图片方法 | 参数1:canvas元素,参数2:保存图片的名字
     function downloadCanvasIamge(canvas, name) {
-        // 使用toDataURL方法将canvas元素转换被base64编码的URL字符串
-        var url = canvas.toDataURL('image/png')
         // 生成一个a元素
-        var a = document.createElement('a')
+        let a = document.createElement('a')
         // 创建一个单击事件
-        var event = new MouseEvent('click')
+        let event = new MouseEvent('click')
 
         // 将a的download属性设置为我们想要下载的图片名称，若name不存在则使用‘下载图片名称’作为默认名称
         a.download = name || '下载图片名称'
-        // 将生成的URL设置为a.href属性
-        a.href = url
-
+        // 使用toDataURL方法将canvas元素转换被base64编码的URL字符串
+        a.href = canvas.toDataURL()
         // 触发a的单击事件
         a.dispatchEvent(event)
     }
@@ -65,20 +62,26 @@ export const Edit = (props) => {
 
     //点击截图的回调
     const handleCut = function () {
+        let timer = null
+        return function () {
 
-        const y = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-        window.pageYoffset = 0;
-        document.documentElement.scrollTop = 0;
-        document.body.scrollTop = 0;
-        const img = document.querySelector('#img')
-        html2canvas(img, {
-        }).then((canvas) => {
-            window.scrollTo(0, y);
-            downloadCanvasIamge(canvas, '图片名称')
-        }).catch(() => [
-            console.log('失败')
-        ])
-
+            let cut = () => {
+                const y = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+                window.pageYoffset = 0;
+                document.documentElement.scrollTop = 0;
+                document.body.scrollTop = 0;
+                const img = document.querySelector('#img')
+                html2canvas(img, {
+                }).then((canvas) => {
+                    window.scrollTo(0, y);
+                    downloadCanvasIamge(canvas, '图片名称')
+                }).catch(() => [
+                    console.log('失败')
+                ])
+            }
+            clearTimeout(timer)
+           timer = setTimeout(cut,100) 
+        }()
     }
 
 
@@ -87,13 +90,13 @@ export const Edit = (props) => {
             <div className='use'>
                 <div className="controls">
                     <label >边框:</label>
-                    <input className='input' type="range" name="imgborder" min="5" max="100" value={imgborder} data-sizing="px" onChange={handleBorder}/>
+                    <input className='input' type="range" name="imgborder" min="5" max="100" value={imgborder} data-sizing="px" onChange={handleBorder} />
 
                     <label >字体大小:</label>
-                    <input className='input' type="range" name="fontsize" min="5" max="30" value={fontsize} data-sizing="px" onChange={handleFontSize}/>
+                    <input className='input' type="range" name="fontsize" min="5" max="30" value={fontsize} data-sizing="px" onChange={handleFontSize} />
 
                     <label >边框颜色:</label>
-                    <input className='input' type="color" name="bordercolor" value={bordercolor} onChange={handleColor}/>
+                    <input className='input' type="color" name="bordercolor" value={bordercolor} onChange={handleColor} />
                     <br />
 
                 </div>
