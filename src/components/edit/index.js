@@ -1,5 +1,5 @@
 import html2canvas from 'html2canvas'
-import { Button, Select } from 'flygrace'
+import { Button, Select,Input } from 'flygrace'
 import { Controlled as CodeMirror } from 'react-codemirror2'
 import './index.css'
 import { useState } from 'react'
@@ -7,9 +7,10 @@ import { useState } from 'react'
 export const Edit = (props) => {
     const [language, setLanguage] = useState('xml')    //语法language
     const [codeValue, setValue] = useState('<h1>Hi~~~</h1>')    //输入值codeValue
-    const [imgborder, setBorder] = useState(10)
+    const [imgborder, setBorder] = useState(17)
     const [fontsize, setFontSize] = useState(16)
     const [bordercolor, setBorderColor] = useState('#97a2ac')
+    const [imgName , setName] = useState('')
     const handleLanguage = (value) => {
         console.log(value)
         setLanguage(value)
@@ -46,7 +47,7 @@ export const Edit = (props) => {
         let event = new MouseEvent('click')
 
         // 将a的download属性设置为我们想要下载的图片名称，若name不存在则使用‘下载图片名称’作为默认名称
-        a.download = name || '下载图片名称'
+        a.download = name || '默认图片名'
         // 使用toDataURL方法将canvas元素转换被base64编码的URL字符串
         a.href = canvas.toDataURL()
         // 触发a的单击事件
@@ -66,6 +67,9 @@ export const Edit = (props) => {
     const handleCut = function () {
         let timer = null
         return function () {
+            if(!imgName) {
+                setName('默认图片名')
+            }
             let cut = () => {
                 const y = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
                 window.pageYoffset = 0;
@@ -75,7 +79,7 @@ export const Edit = (props) => {
                 html2canvas(img, {
                 }).then((canvas) => {
                     window.scrollTo(0, y);
-                    downloadCanvasIamge(canvas, '图片名称')
+                    downloadCanvasIamge(canvas, imgName)
                 }).catch(() => [
                     console.log('失败')
                 ])
@@ -115,6 +119,12 @@ export const Edit = (props) => {
                         <Select.Option value="markdown" />
                     </Select>
                     <Button className='btn' onClick={() => handleCopy()}>复制文本</Button>
+                    <Input 
+                    style={{width:'100px'}}
+                    onChange={(e)=>setName(e.target.value)}
+                    placeholder='请输入图片名' 
+                    minLength={1}
+                    value={imgName}></Input>
                     <Button className='btn' onClick={handleCut()}>截图</Button>
                 </div>
             </div>

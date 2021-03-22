@@ -9,7 +9,8 @@ function App() {
       <div style={{
         minWidth: '600px',
         padding: '0 50px 30px 50px',
-        border: '1px solid white'
+        border: '1px solid white',
+        minHeight:'300px'
       }}><Edit /></div>
       <Banner />
     </>
